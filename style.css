@@ -354,3 +354,127 @@ font-size:44px;
     transform:translateY(80px);
 
 }
+
+/* ========================================= */
+/* STEP 4 */
+/* Exhibition Design */
+/* ========================================= */
+
+.imageFrame{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+
+    transition:.6s;
+
+}
+
+.imageFrame:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 50px 120px rgba(0,0,0,.45);
+
+}
+
+.buildingPhoto{
+
+    width:100%;
+
+    display:block;
+
+    transition:transform 2.2s ease;
+
+}
+
+.imageFrame:hover .buildingPhoto{
+
+    transform:scale(1.08);
+
+}
+
+.quote{
+
+    font-size:32px;
+
+    line-height:1.6;
+
+    color:#e6c37a;
+
+    font-style:italic;
+
+    margin:40px 0;
+
+    opacity:.95;
+
+}
+
+.buildingText{
+
+    max-width:520px;
+
+}
+
+.buildingText p:last-child{
+
+    margin-top:35px;
+
+}
+
+#geunjeong{
+
+    position:relative;
+
+}
+
+#geunjeong::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:2px;
+
+    height:120px;
+
+    background:linear-gradient(
+        transparent,
+        rgba(227,194,128,.8)
+    );
+
+}
+
+#geunjeong::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:60px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#e3c280;
+
+    box-shadow:0 0 18px rgba(227,194,128,.8);
+
+}
