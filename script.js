@@ -166,4 +166,80 @@ e.preventDefault();
 
 });
 
+    // ========================================
+// STEP 4
+// Cinematic Scroll
+// ========================================
+
+const buildingPhoto = document.querySelector(".buildingPhoto");
+
+let ticking = false;
+
+window.addEventListener("scroll", () => {
+
+    if (main.style.display === "none") return;
+
+    if (!ticking) {
+
+        window.requestAnimationFrame(() => {
+
+            const y = window.scrollY;
+
+            // --------------------------
+            // 광화문 카메라 줌
+            // --------------------------
+
+            const zoom = 100 + (y * 0.03);
+
+            gate.style.backgroundSize = `${zoom}%`;
+
+            // --------------------------
+            // 광화문 암전
+            // --------------------------
+
+            const darkness = Math.min(y / 1200, 0.55);
+
+            gate.querySelector(".gateOverlay").style.background =
+                `rgba(0,0,0,${0.45 + darkness})`;
+
+            // --------------------------
+            // 광화문 텍스트
+            // --------------------------
+
+            gateText.style.opacity = Math.max(1 - y / 350, 0);
+
+            gateText.style.transform =
+                `translateY(${y * 0.25}px)`;
+
+
+            // --------------------------
+            // 근정전 이미지
+            // --------------------------
+
+            if (buildingPhoto) {
+
+                const rect = buildingPhoto.getBoundingClientRect();
+
+                if (rect.top < window.innerHeight) {
+
+                    const value =
+                        (window.innerHeight - rect.top) / 25;
+
+                    buildingPhoto.style.transform =
+                        `scale(${1 + value * 0.003})`;
+
+                }
+
+            }
+
+            ticking = false;
+
+        });
+
+        ticking = true;
+
+    }
+
+});
+
 });
