@@ -321,3 +321,36 @@ font-size:44px;
 }
 
 }
+
+/* ===================================== */
+/* STEP 3 */
+/* 광화문 Zoom */
+/* ===================================== */
+
+#gate{
+
+    transition:background-size .2s linear;
+
+}
+
+.buildingImage{
+
+    overflow:hidden;
+
+}
+
+.buildingImage img{
+
+    opacity:0;
+
+    transform:translateY(80px) scale(.92);
+
+}
+
+.buildingText{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+}
