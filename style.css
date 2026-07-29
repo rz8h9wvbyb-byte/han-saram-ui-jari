@@ -1,3 +1,8 @@
+/* =========================================
+   한 사람의 자리
+   PART 1
+========================================= */
+
 *{
     margin:0;
     padding:0;
@@ -9,596 +14,341 @@ html{
 }
 
 body{
-    background:#000;
-    color:#fff;
+    background:#0d0d0d;
+    color:#ffffff;
     font-family:"Noto Serif KR", serif;
     overflow-x:hidden;
+    line-height:1.8;
 }
 
-/* ================= */
-/* INTRO */
-/* ================= */
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+section{
+    position:relative;
+}
+
+/* =========================================
+   INTRO
+========================================= */
 
 #intro{
+
     position:relative;
+
     width:100%;
+
     height:100vh;
+
     overflow:hidden;
+
 }
 
 #introImage{
+
     position:absolute;
+
     inset:0;
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
-    opacity:0;
-    animation:introFade 3s forwards;
+
+    animation:introZoom 5s ease forwards;
+
 }
 
 .overlay{
+
     position:absolute;
+
     inset:0;
+
     background:rgba(0,0,0,.45);
+
     z-index:1;
+
 }
 
 .introContent{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+
+    position:relative;
+
     z-index:2;
+
+    width:90%;
+
+    max-width:900px;
+
+    height:100%;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
 }
 
 .introContent h1{
-    font-size:70px;
-    font-weight:400;
-    letter-spacing:8px;
-    margin-bottom:30px;
+
+    font-size:72px;
+
+    font-weight:300;
+
+    letter-spacing:10px;
+
+    margin-bottom:35px;
+
 }
 
 .introContent p{
-    font-size:22px;
-    line-height:1.8;
-    margin-bottom:45px;
-}
-
-#enterBtn{
-    padding:18px 48px;
-    background:transparent;
-    border:1px solid white;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    transition:.35s;
-}
-
-#enterBtn:hover{
-    background:white;
-    color:black;
-}
-
-/* ================= */
-/* MAIN */
-/* ================= */
-
-#main{
-    display:none;
-    background:#111;
-    color:white;
-}
-
-/* ================= */
-/* HEADER */
-/* ================= */
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    padding:24px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(0,0,0,.55);
-    backdrop-filter:blur(8px);
-    z-index:999;
-}
-
-header h2{
-    font-size:28px;
-    font-weight:400;
-}
-
-nav{
-    display:flex;
-    gap:30px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#e3c280;
-}
-
-/* ================= */
-/* 광화문 */
-/* ================= */
-
-#gate{
-    position:relative;
-    width:100%;
-    height:100vh;
-
-    background-image:url("gwanghwamun.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.gateOverlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.45);
-}
-
-.gateText{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    width:80%;
-}
-
-.gateText h1{
-
-    font-size:80px;
-    font-weight:300;
-    margin-bottom:30px;
-    letter-spacing:10px;
-
-}
-
-.gateText p{
 
     font-size:24px;
-    line-height:1.9;
-
-}
-
-/* ================= */
-/* 근정전 */
-/* ================= */
-
-#geunjeong{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-evenly;
-
-    padding:120px 8%;
-
-    background:#181818;
-
-}
-
-.buildingImage{
-
-    width:48%;
-
-}
-
-.buildingImage img{
-
-    width:100%;
-
-    display:block;
-
-    border-radius:18px;
-
-    transition:.6s;
-
-}
-
-.buildingImage img:hover{
-
-    transform:scale(1.04);
-
-}
-
-.buildingText{
-
-    width:40%;
-
-}
-
-.buildingText h2{
-
-    font-size:60px;
-
-    font-weight:300;
-
-    margin-bottom:30px;
-
-}
-
-.buildingText p{
-
-    font-size:22px;
 
     line-height:2;
 
-    color:#ddd;
+    color:#ececec;
+
+    margin-bottom:55px;
 
 }
 
-/* ================= */
+#enterBtn{
 
-@keyframes introFade{
+    padding:18px 50px;
+
+    border:1px solid #ffffff;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+#enterBtn:hover{
+
+    background:white;
+
+    color:black;
+
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+#main{
+
+    display:none;
+
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    padding:22px 60px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(10px);
+
+    z-index:9999;
+
+}
+
+header h2{
+
+    font-size:28px;
+
+    font-weight:400;
+
+    letter-spacing:3px;
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:28px;
+
+}
+
+nav a{
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:#d7b46c;
+
+}
+
+/* =========================================
+   광화문
+========================================= */
+
+#gate{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+.gateImage{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.gateOverlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+}
+
+.gateContent{
+
+    position:relative;
+
+    z-index:2;
+
+    width:90%;
+
+    max-width:900px;
+
+    height:100%;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.gateContent h1{
+
+    font-size:82px;
+
+    font-weight:300;
+
+    letter-spacing:10px;
+
+    margin-bottom:30px;
+
+}
+
+.gateContent p{
+
+    font-size:24px;
+
+    line-height:2;
+
+    max-width:700px;
+
+    color:#efefef;
+
+}
+
+/* =========================================
+   Animation
+========================================= */
+
+@keyframes introZoom{
 
     from{
 
-        opacity:0;
         transform:scale(1.08);
 
     }
 
     to{
 
-        opacity:1;
         transform:scale(1);
 
     }
 
 }
 
-@media(max-width:900px){
-
-header{
-
-flex-direction:column;
-
-gap:20px;
-
-padding:20px;
-
-}
-
-nav{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-}
-
-#geunjeong{
-
-flex-direction:column;
-
-}
-
-.buildingImage{
-
-width:100%;
-margin-bottom:50px;
-
-}
-
-.buildingText{
-
-width:100%;
-text-align:center;
-
-}
-
-.gateText h1{
-
-font-size:54px;
-
-}
-
-.introContent h1{
-
-font-size:44px;
-
-}
-
-}
-
-/* ===================================== */
-/* STEP 3 */
-/* 광화문 Zoom */
-/* ===================================== */
-
-#gate{
-
-    transition:background-size .2s linear;
-
-}
-
-.buildingImage{
-
-    overflow:hidden;
-
-}
-
-.buildingImage img{
-
-    opacity:0;
-
-    transform:translateY(80px) scale(.92);
-
-}
-
-.buildingText{
-
-    opacity:0;
-
-    transform:translateY(80px);
-
-}
-
-/* ========================================= */
-/* STEP 4 */
-/* Exhibition Design */
-/* ========================================= */
-
-.imageFrame{
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:20px;
-
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
-
-    transition:.6s;
-
-}
-
-.imageFrame:hover{
-
-    transform:translateY(-12px);
-
-    box-shadow:0 50px 120px rgba(0,0,0,.45);
-
-}
-
-.buildingPhoto{
-
-    width:100%;
-
-    display:block;
-
-    transition:transform 2.2s ease;
-
-}
-
-.imageFrame:hover .buildingPhoto{
-
-    transform:scale(1.08);
-
-}
-
-.quote{
-
-    font-size:32px;
-
-    line-height:1.6;
-
-    color:#e6c37a;
-
-    font-style:italic;
-
-    margin:40px 0;
-
-    opacity:.95;
-
-}
-
-.buildingText{
-
-    max-width:520px;
-
-}
-
-.buildingText p:last-child{
-
-    margin-top:35px;
-
-}
-
-#geunjeong{
-
-    position:relative;
-
-}
-
-#geunjeong::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:2px;
-
-    height:120px;
-
-    background:linear-gradient(
-        transparent,
-        rgba(227,194,128,.8)
-    );
-
-}
-
-#geunjeong::after{
-
-    content:"";
-
-    position:absolute;
-
-    bottom:60px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:12px;
-
-    height:12px;
-
-    border-radius:50%;
-
-    background:#e3c280;
-
-    box-shadow:0 0 18px rgba(227,194,128,.8);
-
-}
-
-/* ===================================== */
-/* THRONE */
-/* ===================================== */
-
-#throne{
-
-    position:relative;
-
-    min-height:120vh;
-
-    background:#050505;
-
-    color:white;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow:hidden;
-
-}
-
-.throneOverlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-    radial-gradient(circle,
-    rgba(255,255,255,.04),
-    rgba(0,0,0,.92));
-
-}
-
-.throneContent{
-
-    position:relative;
-
-    z-index:2;
-
-    width:min(900px,90%);
-
-    text-align:center;
-
-}
-
-.throneContent h2{
-
-    font-size:64px;
-
-    margin-bottom:30px;
-
-    letter-spacing:8px;
-
-}
-
-.throneQuote{
-
-    color:#d6b36d;
-
-    font-size:30px;
-
-    line-height:1.8;
-
-    margin-bottom:70px;
-
-    opacity:.9;
-
-}
-
-.throneImage{
-
-    width:100%;
-
-    border-radius:20px;
-
-    box-shadow:0 30px 90px rgba(0,0,0,.5);
-
-    opacity:0;
-
-    transform:translateY(120px);
-
-    transition:1.4s;
-
-}
-
-.throneImage.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-.throneDescription{
-
-    margin-top:60px;
-
-    font-size:22px;
-
-    line-height:2;
-
-    opacity:.85;
-
-}
-
-/* =============================== */
-/* Reflection */
-/* =============================== */
-
-#reflection{
+/* =========================================
+   PART 2
+   근정전 · 어좌 · 왕의 책상
+========================================= */
+
+#geunjeong,
+#throne,
+#desk{
 
     min-height:100vh;
 
-    background:#111;
-
-    color:white;
+    background:#121212;
 
     display:flex;
 
@@ -606,155 +356,25 @@ font-size:44px;
 
     align-items:center;
 
-    padding:100px 20px;
+    padding:120px 0;
 
 }
 
-.reflectionContent{
+#throne{
 
-    width:min(700px,90%);
-
-    text-align:center;
+    background:#0c0c0c;
 
 }
 
-.reflectionContent h2{
+#desk{
 
-    font-size:58px;
-
-    margin-bottom:40px;
+    background:#161616;
 
 }
 
-.reflectionQuestion{
-
-    font-size:28px;
-
-    line-height:1.8;
-
-    color:#d7b46c;
-
-    margin-bottom:50px;
-
-}
-
-.reflectionContent textarea{
-
-    width:100%;
-
-    padding:20px;
-
-    font-size:20px;
-
-    border:none;
-
-    border-radius:15px;
-
-    resize:none;
-
-    margin-bottom:30px;
-
-    background:#222;
-
-    color:white;
-
-}
-
-#savePromise{
-
-    background:#d7b46c;
-
-    color:black;
-
-    border:none;
-
-    padding:15px 40px;
-
-    font-size:20px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-#savePromise:hover{
-
-    transform:translateY(-3px);
-
-}
-
-#saveMessage{
-
-    margin-top:25px;
-
-    color:#d7b46c;
-
-    font-size:18px;
-
-}
-
-/* =========================== */
-/* Sketchfab */
-/* =========================== */
-
-.buildingViewer{
-
-    width:100%;
-
-    max-width:900px;
-
-    aspect-ratio:16/9;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 25px 80px rgba(0,0,0,.45);
-
-}
-
-.buildingViewer iframe{
-
-    width:100%;
-
-    height:100%;
-
-    border:none;
-
-}
-
-/* ===========================
-   Sketchfab Viewer
-=========================== */
-
-.viewer{
-
-    width:min(1000px,90%);
-
-    aspect-ratio:16/9;
-
-    margin:50px auto;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
-
-}
-
-.viewer iframe{
-
-    width:100%;
-
-    height:100%;
-
-    border:none;
-
-}
+/* ===============================
+   공통 레이아웃
+=============================== */
 
 .sectionContent{
 
@@ -770,15 +390,11 @@ font-size:44px;
 
     font-size:64px;
 
+    font-weight:300;
+
+    letter-spacing:6px;
+
     margin-bottom:30px;
-
-}
-
-.sectionContent p{
-
-    font-size:22px;
-
-    line-height:2;
 
 }
 
@@ -786,8 +402,464 @@ font-size:44px;
 
     color:#d7b46c;
 
+    font-size:28px;
+
+    line-height:1.8;
+
     font-style:italic;
 
-    margin-bottom:40px;
+    margin-bottom:55px;
+
+}
+
+.sectionContent p{
+
+    font-size:22px;
+
+    line-height:2.1;
+
+    color:#dddddd;
+
+    margin-top:45px;
+
+    white-space:pre-line;
+
+}
+
+/* ===============================
+   Sketchfab Viewer
+=============================== */
+
+.viewer{
+
+    width:100%;
+
+    max-width:1000px;
+
+    height:620px;
+
+    margin:0 auto;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    background:#000;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.45);
+
+}
+
+.viewer iframe{
+
+    width:100%;
+
+    height:100%;
+
+    border:none;
+
+    display:block;
+
+}
+
+/* ===============================
+   금색 라인
+=============================== */
+
+#geunjeong::before,
+#throne::before,
+#desk::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:2px;
+
+    height:100px;
+
+    background:linear-gradient(
+        transparent,
+        rgba(215,180,108,.9)
+    );
+
+}
+
+#geunjeong::after,
+#throne::after,
+#desk::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:60px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#d7b46c;
+
+    box-shadow:0 0 18px rgba(215,180,108,.9);
+
+}
+
+/* ===============================
+   Viewer Hover
+=============================== */
+
+.viewer{
+
+    transition:.35s;
+
+}
+
+.viewer:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.55);
+
+}
+
+/* ===============================
+   본문 폭
+=============================== */
+
+.sectionContent p{
+
+    max-width:760px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+/* =========================================
+   PART 3
+   왕의 시선 · 나의 다짐 · 반응형
+========================================= */
+
+/* ===============================
+   왕의 시선
+=============================== */
+
+#kingview{
+
+    min-height:100vh;
+
+    background:#101010;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:120px 0;
+
+}
+
+.kingViewImage{
+
+    width:100%;
+
+    max-width:1000px;
+
+    display:block;
+
+    margin:50px auto;
+
+    border-radius:22px;
+
+    box-shadow:0 25px 80px rgba(0,0,0,.45);
+
+    transition:.45s;
+
+}
+
+.kingViewImage:hover{
+
+    transform:scale(1.02);
+
+    box-shadow:0 40px 110px rgba(0,0,0,.55);
+
+}
+
+/* ===============================
+   나의 다짐
+=============================== */
+
+#reflection{
+
+    min-height:100vh;
+
+    background:#0b0b0b;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:120px 20px;
+
+}
+
+.reflectionContent{
+
+    width:min(800px,92%);
+
+    text-align:center;
+
+}
+
+.reflectionContent h2{
+
+    font-size:60px;
+
+    font-weight:300;
+
+    letter-spacing:5px;
+
+    margin-bottom:35px;
+
+}
+
+.reflectionQuestion{
+
+    font-size:26px;
+
+    line-height:2;
+
+    color:#d7b46c;
+
+    margin-bottom:50px;
+
+}
+
+.reflectionContent textarea{
+
+    width:100%;
+
+    min-height:220px;
+
+    padding:24px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#1d1d1d;
+
+    color:white;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    resize:vertical;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+.reflectionContent textarea:focus{
+
+    box-shadow:0 0 0 2px #d7b46c;
+
+}
+
+.reflectionContent textarea::placeholder{
+
+    color:#888;
+
+}
+
+#savePromise{
+
+    margin-top:35px;
+
+    padding:16px 42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#d7b46c;
+
+    color:#111;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#savePromise:hover{
+
+    transform:translateY(-4px);
+
+    background:#e4c785;
+
+}
+
+#saveMessage{
+
+    margin-top:24px;
+
+    color:#d7b46c;
+
+    font-size:18px;
+
+}
+
+/* ===============================
+   스크롤바
+=============================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#555;
+
+    border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#888;
+
+}
+
+/* ===============================
+   모바일
+=============================== */
+
+@media (max-width:900px){
+
+header{
+
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:18px;
+
+}
+
+nav{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:14px;
+
+}
+
+.introContent h1{
+
+    font-size:46px;
+
+    letter-spacing:4px;
+
+}
+
+.gateContent h1{
+
+    font-size:52px;
+
+    letter-spacing:4px;
+
+}
+
+.sectionContent h2{
+
+    font-size:42px;
+
+}
+
+.quote{
+
+    font-size:22px;
+
+}
+
+.sectionContent p{
+
+    font-size:18px;
+
+}
+
+.viewer{
+
+    height:320px;
+
+}
+
+.kingViewImage{
+
+    margin:30px auto;
+
+}
+
+.reflectionContent h2{
+
+    font-size:42px;
+
+}
+
+.reflectionQuestion{
+
+    font-size:20px;
+
+}
+
+.reflectionContent textarea{
+
+    min-height:180px;
+
+    font-size:17px;
+
+}
+
+#savePromise{
+
+    width:100%;
+
+}
 
 }
