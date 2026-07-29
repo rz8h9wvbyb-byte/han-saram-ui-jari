@@ -243,3 +243,39 @@ window.addEventListener("scroll", () => {
 });
 
 });
+
+// =====================================
+// THRONE Animation
+// =====================================
+
+const throneImage = document.querySelector(".throneImage");
+
+const throneObserver = new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            throneImage.classList.add("show");
+
+        }
+
+    });
+
+},
+
+{
+
+    threshold:0.35
+
+}
+
+);
+
+if(throneImage){
+
+    throneObserver.observe(throneImage);
+
+}
