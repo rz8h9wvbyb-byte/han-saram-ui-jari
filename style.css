@@ -587,3 +587,111 @@ font-size:44px;
     opacity:.85;
 
 }
+
+/* =============================== */
+/* Reflection */
+/* =============================== */
+
+#reflection{
+
+    min-height:100vh;
+
+    background:#111;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:100px 20px;
+
+}
+
+.reflectionContent{
+
+    width:min(700px,90%);
+
+    text-align:center;
+
+}
+
+.reflectionContent h2{
+
+    font-size:58px;
+
+    margin-bottom:40px;
+
+}
+
+.reflectionQuestion{
+
+    font-size:28px;
+
+    line-height:1.8;
+
+    color:#d7b46c;
+
+    margin-bottom:50px;
+
+}
+
+.reflectionContent textarea{
+
+    width:100%;
+
+    padding:20px;
+
+    font-size:20px;
+
+    border:none;
+
+    border-radius:15px;
+
+    resize:none;
+
+    margin-bottom:30px;
+
+    background:#222;
+
+    color:white;
+
+}
+
+#savePromise{
+
+    background:#d7b46c;
+
+    color:black;
+
+    border:none;
+
+    padding:15px 40px;
+
+    font-size:20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#savePromise:hover{
+
+    transform:translateY(-3px);
+
+}
+
+#saveMessage{
+
+    margin-top:25px;
+
+    color:#d7b46c;
+
+    font-size:18px;
+
+}
