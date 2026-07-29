@@ -478,3 +478,112 @@ font-size:44px;
     box-shadow:0 0 18px rgba(227,194,128,.8);
 
 }
+
+/* ===================================== */
+/* THRONE */
+/* ===================================== */
+
+#throne{
+
+    position:relative;
+
+    min-height:120vh;
+
+    background:#050505;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+.throneOverlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,.04),
+    rgba(0,0,0,.92));
+
+}
+
+.throneContent{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(900px,90%);
+
+    text-align:center;
+
+}
+
+.throneContent h2{
+
+    font-size:64px;
+
+    margin-bottom:30px;
+
+    letter-spacing:8px;
+
+}
+
+.throneQuote{
+
+    color:#d6b36d;
+
+    font-size:30px;
+
+    line-height:1.8;
+
+    margin-bottom:70px;
+
+    opacity:.9;
+
+}
+
+.throneImage{
+
+    width:100%;
+
+    border-radius:20px;
+
+    box-shadow:0 30px 90px rgba(0,0,0,.5);
+
+    opacity:0;
+
+    transform:translateY(120px);
+
+    transition:1.4s;
+
+}
+
+.throneImage.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.throneDescription{
+
+    margin-top:60px;
+
+    font-size:22px;
+
+    line-height:2;
+
+    opacity:.85;
+
+}
