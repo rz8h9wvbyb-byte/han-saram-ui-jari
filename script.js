@@ -279,3 +279,29 @@ if(throneImage){
     throneObserver.observe(throneImage);
 
 }
+
+// ================================
+// Reflection
+// ================================
+
+const saveButton = document.querySelector("#savePromise");
+const saveMessage = document.querySelector("#saveMessage");
+const textarea = document.querySelector("textarea");
+
+if(saveButton){
+
+    saveButton.addEventListener("click",()=>{
+
+        if(textarea.value.trim()===""){
+
+            saveMessage.textContent="다짐을 입력해주세요.";
+
+            return;
+
+        }
+
+        saveMessage.textContent="당신의 다짐이 기록되었습니다.";
+
+    });
+
+}
