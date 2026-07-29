@@ -1,307 +1,215 @@
 // =========================================
-// STEP 3
 // 한 사람의 자리
+// Part 1
+// Intro / Navigation / Scroll Animation
 // =========================================
 
-const intro=document.getElementById("intro");
-const main=document.getElementById("main");
-const enterBtn=document.getElementById("enterBtn");
+// ----------------------------
+// 요소 가져오기
+// ----------------------------
 
-const gate=document.getElementById("gate");
-const gateText=document.querySelector(".gateText");
+const intro = document.getElementById("intro");
+const main = document.getElementById("main");
+const enterBtn = document.getElementById("enterBtn");
 
 
+// ----------------------------
+// 입장하기
+// ----------------------------
 
-// --------------------
-// 입장
-// --------------------
+enterBtn.addEventListener("click", () => {
 
-enterBtn.addEventListener("click",()=>{
+    intro.style.transition = "opacity 1s";
+    intro.style.opacity = "0";
 
-    intro.style.transition="opacity 1.2s";
+    setTimeout(() => {
 
-    intro.style.opacity=0;
+        intro.style.display = "none";
+        main.style.display = "block";
 
-    setTimeout(()=>{
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
 
-        intro.style.display="none";
+    }, 1000);
 
-        main.style.display="block";
+});
 
-        requestAnimationFrame(()=>{
 
-            main.style.opacity=0;
+// ----------------------------
+// 메뉴 부드러운 이동
+// ----------------------------
 
-            main.style.transition="opacity 1s";
+document.querySelectorAll("nav a").forEach(link => {
 
-            main.style.opacity=1;
+    link.addEventListener("click", (e) => {
 
-            window.scrollTo(0,0);
+        e.preventDefault();
+
+        const target = document.querySelector(
+            link.getAttribute("href")
+        );
+
+        if (!target) return;
+
+        target.scrollIntoView({
+
+            behavior: "smooth",
+            block: "start"
 
         });
 
-    },1200);
+    });
 
 });
 
 
-
-// --------------------
-// 패럴랙스
-// --------------------
-
-window.addEventListener("scroll",()=>{
-
-    if(main.style.display==="none") return;
-
-    const y=window.scrollY;
-
-
-
-    // 광화문 줌
-
-    gate.style.backgroundSize=
-        100+y*0.04+"%";
-
-
-
-    // 배경 이동
-
-    gate.style.backgroundPosition=
-        `center ${y*0.35}px`;
-
-
-
-    // 글자 사라짐
-
-    gateText.style.opacity=
-        1-y/320;
-
-    gateText.style.transform=
-        `translateY(${y*.4}px)`;
-
-
-});
-
-
-
-
-// --------------------
+// ----------------------------
 // 등장 애니메이션
-// --------------------
+// ----------------------------
 
-const observer=new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.animate(
-
-[
-
-{
-
-opacity:0,
-
-transform:"translateY(80px)"
-
-},
-
-{
-
-opacity:1,
-
-transform:"translateY(0)"
-
-}
-
-],
-
-{
-
-duration:1200,
-
-fill:"forwards",
-
-easing:"ease"
-
-}
-
+const sections = document.querySelectorAll(
+    "#gate, #geunjeong, #throne, #desk, #kingview, #reflection"
 );
 
+sections.forEach(section => {
+
+    section.style.opacity = "0";
+    section.style.transform = "translateY(60px)";
+    section.style.transition =
+        "opacity 1s ease, transform 1s ease";
+
+});
+
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+}, {
+
+    threshold: 0.25
+
+});
+
+
+sections.forEach(section => {
+
+    observer.observe(section);
+
+});
+
+// =========================================
+// 한 사람의 자리
+// Part 2
+// Reflection / 저장 / 첫 화면
+// =========================================
+
+// ----------------------------
+// 다짐 남기기
+// ----------------------------
+
+const textarea = document.querySelector("textarea");
+const saveButton = document.getElementById("savePromise");
+const saveMessage = document.getElementById("saveMessage");
+
+// 저장된 다짐 불러오기
+const savedPromise = localStorage.getItem("myPromise");
+
+if(savedPromise){
+
+    textarea.value = savedPromise;
+
+    saveMessage.textContent = "이전에 작성한 다짐이 불러와졌습니다.";
+
 }
 
-});
+// 버튼 클릭
+saveButton.addEventListener("click",()=>{
 
-},{threshold:.35});
+    const text = textarea.value.trim();
 
+    if(text === ""){
 
+        saveMessage.textContent = "다짐을 입력해주세요.";
 
-document.querySelectorAll(".buildingImage,.buildingText")
-.forEach(el=>{
+        return;
 
-observer.observe(el);
+    }
 
-});
+    localStorage.setItem("myPromise", text);
 
-
-
-
-// --------------------
-// 메뉴
-// --------------------
-
-document.querySelectorAll("nav a").forEach(link=>{
-
-link.addEventListener("click",(e)=>{
-
-const href=link.getAttribute("href");
-
-if(href==="#"){
-
-e.preventDefault();
-
-}
+    saveMessage.textContent = "당신의 다짐이 기록되었습니다.";
 
 });
 
-    // ========================================
-// STEP 4
-// Cinematic Scroll
-// ========================================
 
-const buildingPhoto = document.querySelector(".buildingPhoto");
+// ----------------------------
+// 새로고침 시 항상 처음부터 시작
+// ----------------------------
 
-let ticking = false;
+window.addEventListener("load",()=>{
 
-window.addEventListener("scroll", () => {
+    intro.style.display = "block";
 
-    if (main.style.display === "none") return;
+    intro.style.opacity = "1";
 
-    if (!ticking) {
+    main.style.display = "none";
 
-        window.requestAnimationFrame(() => {
+    window.scrollTo(0,0);
 
-            const y = window.scrollY;
-
-            // --------------------------
-            // 광화문 카메라 줌
-            // --------------------------
-
-            const zoom = 100 + (y * 0.03);
-
-            gate.style.backgroundSize = `${zoom}%`;
-
-            // --------------------------
-            // 광화문 암전
-            // --------------------------
-
-            const darkness = Math.min(y / 1200, 0.55);
-
-            gate.querySelector(".gateOverlay").style.background =
-                `rgba(0,0,0,${0.45 + darkness})`;
-
-            // --------------------------
-            // 광화문 텍스트
-            // --------------------------
-
-            gateText.style.opacity = Math.max(1 - y / 350, 0);
-
-            gateText.style.transform =
-                `translateY(${y * 0.25}px)`;
+});
 
 
-            // --------------------------
-            // 근정전 이미지
-            // --------------------------
+// ----------------------------
+// ESC 누르면 맨 위로
+// (발표할 때 편리)
+// ----------------------------
 
-            if (buildingPhoto) {
+document.addEventListener("keydown",(e)=>{
 
-                const rect = buildingPhoto.getBoundingClientRect();
+    if(e.key==="Escape"){
 
-                if (rect.top < window.innerHeight) {
+        window.scrollTo({
 
-                    const value =
-                        (window.innerHeight - rect.top) / 25;
+            top:0,
 
-                    buildingPhoto.style.transform =
-                        `scale(${1 + value * 0.003})`;
-
-                }
-
-            }
-
-            ticking = false;
+            behavior:"smooth"
 
         });
-
-        ticking = true;
 
     }
 
 });
 
+
+// ----------------------------
+// 이미지 로드 확인
+// ----------------------------
+
+document.querySelectorAll("img").forEach(img=>{
+
+    img.addEventListener("error",()=>{
+
+        console.warn("이미지를 찾을 수 없습니다 :", img.src);
+
+    });
+
 });
 
-// =====================================
-// THRONE Animation
-// =====================================
 
-const throneImage = document.querySelector(".throneImage");
+// ----------------------------
+// Console
+// ----------------------------
 
-const throneObserver = new IntersectionObserver(
-
-(entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            throneImage.classList.add("show");
-
-        }
-
-    });
-
-},
-
-{
-
-    threshold:0.35
-
-}
-
-);
-
-if(throneImage){
-
-    throneObserver.observe(throneImage);
-
-}
-
-// ================================
-// Reflection
-// ================================
-
-const saveButton = document.querySelector("#savePromise");
-const saveMessage = document.querySelector("#saveMessage");
-const textarea = document.querySelector("textarea");
-
-if(saveButton){
-
-    saveButton.addEventListener("click",()=>{
-
-        if(textarea.value.trim()===""){
-
-            saveMessage.textContent="다짐을 입력해주세요.";
-
-            return;
-
-        }
-
-        saveMessage.textContent="당신의 다짐이 기록되었습니다.";
-
-    });
-
-}
+console.log("한 사람의 자리 - Exhibition Loaded");
